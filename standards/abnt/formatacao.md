@@ -77,7 +77,8 @@ e inferior de 2 cm.
   letras (APÊNDICE A, ANEXO A).
 - Natureza do trabalho (folha de rosto/aprovação): alinhada **do meio da mancha
   gráfica até a margem direita**.
-- Cada seção primária inicia em **nova página** (convenção de manuais, PUC-SP).
+- Títulos de seções primárias começam em **nova página** (trabalhos só-anverso)
+  ou em **página ímpar (anverso)** em trabalhos frente e verso (NBR 14724:2024, 5.2.2).
 
 ## Ilustrações e tabelas
 

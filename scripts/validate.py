@@ -18,6 +18,14 @@ Saida: lista de PASS/FAIL por checagem; exit code 0 se tudo OK.
 
 Nota: a checagem de identidade varre o conteudo da skill, excluindo a
 infraestrutura de teste (tests/).
+
+Nota sobre o parser de frontmatter: intencionalmente simples e stdlib-only
+(sem PyYAML), adequado ao frontmatter pequeno e controlado desta skill.
+Aceita escalares em linha unica (com/sem aspas simples/duplas) e o mapa
+'metadata'. Falha explicitamente (fail-closed) diante de construtos nao
+suportados — sequencias/mapas desbalanceados, escalares de bloco (|, >),
+continuacoes indentadas fora de 'metadata' — em vez de interpretar errado.
+Regressoes em tests/test_frontmatter.py.
 """
 
 import re
@@ -34,6 +42,16 @@ def check(name, ok, detail=""):
         failures.append(name)
 
 
+def strip_quotes(value):
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in ("'", '"'):
+        return value[1:-1]
+    return value
+
+
+def brackets_balanced(value):
+    return value.count("[") == value.count("]") and value.count("{") == value.count("}")
+
+
 def parse_frontmatter(text):
     if not text.startswith("---"):
         return None, "SKILL.md nao comeca com '---'"
@@ -46,15 +64,32 @@ def parse_frontmatter(text):
         for line in raw.splitlines():
             if not line.strip() or line.strip().startswith("#"):
                 continue
-            if re.match(r"^\s", line) and current_key in ("metadata",):
-                k, _, v = line.strip().partition(":")
-                data[current_key][k.strip()] = v.strip().strip('"')
+            if re.match(r"^\s", line):
+                if current_key != "metadata":
+                    return None, f"continuacao indentada fora de 'metadata': {line!r}"
+                k, sep, v = line.strip().partition(":")
+                if not sep:
+                    return None, f"linha invalida no frontmatter: {line!r}"
+                data[current_key][k.strip()] = strip_quotes(v.strip())
                 continue
             k, sep, v = line.partition(":")
             if not sep:
                 return None, f"linha invalida no frontmatter: {line!r}"
-            k, v = k.strip(), v.strip().strip('"')
+            k, v = k.strip(), v.strip()
+            if v[:1] in ("|", ">"):
+                return None, (
+                    f"escalar de bloco nao suportado em {k!r}: use valor escalar "
+                    f"em linha unica"
+                )
+            if not brackets_balanced(v):
+                return None, (
+                    f"sequencia/mapa desbalanceado em {k!r}: {v!r} "
+                    f"(sequencias nao fechadas nao sao aceitas)"
+                )
+            v = strip_quotes(v)
             if k == "metadata":
+                if v:
+                    return None, f"'metadata' exige mapa indentado, nao valor: {v!r}"
                 data[k] = {}
                 current_key = k
             else:
@@ -63,6 +98,19 @@ def parse_frontmatter(text):
     except Exception as e:  # noqa: BLE001 - validador simples
         return None, f"erro de parse: {e}"
     return data, ""
+
+
+def validate_field_types(fm):
+    for key, value in fm.items():
+        if key == "metadata":
+            if not isinstance(value, dict):
+                return f"'metadata' deve ser um mapa, nao {type(value).__name__}"
+            for sub, subval in value.items():
+                if not isinstance(subval, str):
+                    return f"metadata.{sub} deve ser texto, nao {type(subval).__name__}"
+        elif not isinstance(value, str):
+            return f"campo {key!r} deve ser texto, nao {type(value).__name__}"
+    return ""
 
 
 def build_office_patterns():
@@ -107,6 +155,8 @@ def main():
     check("frontmatter parseavel", fm is not None, err)
 
     if fm is not None:
+        type_err = validate_field_types(fm)
+        check("tipos do frontmatter validos", not type_err, type_err)
         known = {"name", "description", "when_to_use", "argument-hint", "license",
                  "compatibility", "metadata", "allowed-tools", "user-invocable",
                  "disable-model-invocation"}

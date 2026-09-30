@@ -7,7 +7,8 @@ entregar um trabalho formal, confirme qual edição sua instituição adota.
 ## Regras gerais confirmadas
 
 - Lista única ao final do trabalho (elemento pós-textual obrigatório).
-- **Ordem alfabética** pelo sobrenome do primeiro autor.
+- **Ordem alfabética** pelo sobrenome do primeiro autor (sistema autor-data);
+  no sistema numérico, numerar e ordenar pela **primeira citação no texto**.
 - **Espaço simples** dentro de cada referência; referências separadas entre si
   por um espaço simples em branco (conforme NBR 14724:2024).
 - Alinhamento à esquerda (convenção de manuais).

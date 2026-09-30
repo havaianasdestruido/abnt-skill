@@ -4,17 +4,25 @@
 
 ```bash
 python3 scripts/validate.py
+python3 tests/test_frontmatter.py
 ```
 
-Checagens: frontmatter parseável e dentro dos limites da spec (`name` kebab-case
-`abnt`, `description` ≤1024, `compatibility` ≤500, sem campos desconhecidos);
-`SKILL.md` <500 linhas; `$ARGUMENTS` presente; links internos resolvendo;
-identidade única (sem `office-skills`, `abnt-office`, `school-office`,
-`academic-office`); NBRs restritas à lista pesquisada; scripts sem manipulação
-Office; módulos obrigatórios presentes.
+Checagens (`validate.py`): frontmatter parseável, tipos decodificados válidos e
+dentro dos limites da spec (`name` kebab-case `abnt`, `description` ≤1024,
+`compatibility` ≤500, sem campos desconhecidos); `SKILL.md` <500 linhas;
+`$ARGUMENTS` presente; links internos resolvendo; identidade única (sem
+`office-skills`, `abnt-office`, `school-office`, `academic-office`); NBRs
+restritas à lista pesquisada; scripts sem manipulação Office; módulos
+obrigatórios presentes.
 
-**Resultado registrado:** `RESULTADO: OK -- todas as checagens passaram.`
-(exit 0; ver log de execução no commit; reexecutar após qualquer alteração).
+Regressão (`test_frontmatter.py`): valores com aspas simples/duplas, mapa
+`metadata`, colchetes balanceados; rejeição de YAML malformado (sem fechamento,
+linha sem dois-pontos, sequência/mapa não fechados, bloco multilinha,
+indentação fora de `metadata`) e de tipos decodificados inválidos.
+
+**Resultado registrado:** `RESULTADO: OK -- todas as checagens passaram.` em
+ambos os scripts (exit 0; ver log de execução no commit; reexecutar após
+qualquer alteração).
 
 ## B. Protocolo comportamental (executar no Claude Code)
 

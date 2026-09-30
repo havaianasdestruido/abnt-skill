@@ -11,12 +11,15 @@ item; nada pode sair com item obrigatório pendente.
 ## ABNT (documentos formais)
 
 - [ ] Estrutura do gênero correta (14724 / 6022 / 15287)
-- [ ] Margens 3/2/3/2, A4, fonte 12, 1,5 (exceções em menor/simples)
-- [ ] Paginação contada da rosto, figurando da parte textual, superior direita
+- [ ] Margens A4 3/2/3/2 no anverso (sup/esq 3 cm, inf/dir 2 cm), espelhadas
+  no verso (sup/dir 3 cm, inf/esq 2 cm); fonte 12, 1,5 (exceções em menor/simples)
+- [ ] Paginação contada da rosto, figurando da parte textual: superior direita
+  no anverso, superior esquerda no verso
 - [ ] Citações (10520) × referências (6023): toda citação referenciada e vice-versa
 - [ ] Numeração progressiva sem sinal entre indicativo e título (6024)
 - [ ] Sumário = último pré-textual, espelhando texto (6027)
-- [ ] Resumo 150–500 palavras, parágrafo único, 3–5 palavras-chave (6028)
+- [ ] Resumo em parágrafo único, 3–5 palavras-chave: 150–500 palavras
+  (trabalhos acadêmicos/relatórios) ou 100–250 (artigos) (6028)
 
 ## Escola — apresentações
 

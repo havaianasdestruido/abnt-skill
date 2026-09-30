@@ -4,12 +4,13 @@ Referência flexível, não norma rígida. A ABNT rege o conteúdo citado
 (citações, referências, fontes); o visual segue estas orientações + a camada
 [design](../../../design/README.md).
 
-## Regra 10-20-30 (flexível)
+## Regra 10-20-30 (flexível — adaptação escolar da referência de Guy Kawasaki)
 
 - **≈10 slides** — referência, não limite. Uma aula/apresentação pode chegar a
   **≈20 slides** quando necessário.
 - **≈20 minutos** de apresentação.
-- **30 pt = tamanho máximo recomendado** para o texto apresentado.
+- **30 pt = tamanho máximo recomendado** para o texto apresentado (nesta
+  orientação escolar; no original de Kawasaki, 30 pt é o tamanho mínimo).
 
 ## Tipografia (não confundir com fontes bibliográficas)
 

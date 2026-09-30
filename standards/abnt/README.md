@@ -33,3 +33,6 @@ normalização técnica no Brasil, incluindo as normas de trabalhos acadêmicos.
   <https://www.pucsp.br/sites/default/files/download/biblioteca/2025/tutorial-de-normas-abnt-para-trabalhos-academicos-utilizando-o-microsoft-word.pdf>
 - CEFET-MG — "Manual de normas… conforme NBR 14724":
   <https://www.eng-eletrica.bh.cefetmg.br/wp-content/uploads/sites/191/2019/08/2-MANUAL-DE-NORMAS-atualizada-conforme-NBR-14724-de-abril-de-2011-1-31.pdf>
+- Mettzer — "NBR 10520: o que diz a ABNT sobre as citações": <https://blog.mettzer.com/nbr-10520/>
+- FastFormat — "Ordenação de referências – NBR 6023": <https://blog.fastformat.co/ordenacao-de-referencias-abnt-nbr-6023-2018/>
+- UVA — "Atualização ABNT NBR 14724:2024": <https://www.uva.ce.gov.br/wp-content/uploads/sites/143/2025/05/biblioteca-atualizacao-abnt-nbr-14724-2024.pdf>

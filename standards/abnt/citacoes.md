@@ -8,7 +8,8 @@ Confirme detalhes de pontuação na edição vigente.
 - **Autor-data** (o mais usado no Brasil): sobrenome + ano no texto.
 - **Numérico** (menos comum; mais usado em engenharias): números remetendo à
   lista de referências.
-- Escolha **um** sistema e use-o em todo o trabalho.
+- Escolha **um** sistema e use-o em todo o trabalho. O sistema numérico
+  **não deve ser utilizado quando há notas de rodapé** (NBR 10520, 6.2.1).
 
 ## Formas de citação
 

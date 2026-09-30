@@ -16,6 +16,9 @@ Entrega modelagem + roteiro (e sugere Excel quando o volume cabe em planilha).
    adaptar no Access; formulários/relatórios descritos campo a campo.
 4. **Critério Excel × Access:** até poucas dezenas de milhares de linhas sem
    multiusuário → prefira [excel/](../excel/README.md); acima disso ou com
-   integridade relacional → Access.
+   integridade relacional → Access, observado o limite de **2 GB por arquivo
+   .accdb** (especificações do Access). Para volumes que excedem esse limite,
+   recomende particionar em múltiplos back-ends vinculados ou migrar para um
+   SGBD dedicado (p.ex. SQL Server/PostgreSQL) em vez de um único .accdb.
 
 Indique os passos manuais no Access — nunca afirme ter criado o banco.

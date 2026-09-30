@@ -24,5 +24,6 @@
 - **Extensão:** 150 a 500 palavras (trabalhos acadêmicos); 100 a 250 palavras
   (artigos de periódico).
 - **Parágrafo único**, sem recuo, com espaçamento simples.
-- **3 a 5 palavras-chave**, separadas por ponto e vírgula.
+- **Palavras-chave** separadas por ponto e vírgula, em quantidade definida
+  pelo manual institucional (usual: 3 a 5).
 - Resumo em língua estrangeira (Abstract) segue o mesmo padrão.
